@@ -16,7 +16,7 @@ const home=document.getElementById('home'),viewer=document.getElementById('viewe
 function openViewer(){home.style.display='none';viewer.style.display='flex';field.focus()}function closeViewer(){viewer.style.display='none';home.style.display='block';frame.src='about:blank'}
 function navigate(value){let address=value.trim();if(!address)return;if(!address.includes('://'))address='https://'+address;try{const parsed=new URL(address);if(!['http:','https:'].includes(parsed.protocol))throw new Error();field.value=parsed.href;external.href=parsed.href;frame.src=parsed.href}catch(_){field.setCustomValidity('Enter a valid http or https website address.');field.reportValidity();field.setCustomValidity('')}}
 document.getElementById('openBrowser').addEventListener('click',openViewer);document.getElementById('urlForm').addEventListener('submit',event=>{event.preventDefault();navigate(field.value)});document.getElementById('exit').addEventListener('click',closeViewer);
-document.addEventListener('keydown',event=>{if(event.key.toLowerCase()!=='p'||event.ctrlKey||event.altKey||event.metaKey||event.shiftKey)return;const target=event.target;if(target instanceof HTMLElement&&(target.isContentEditable||['INPUT','TEXTAREA','SELECT'].includes(target.tagName)))return;if(home.style.display!=='none')openViewer()});
+document.addEventListener('keydown',event=>{if(event.key.toLowerCase()!=='p'||event.ctrlKey||event.altKey||event.metaKey||event.shiftKey)return;const target=event.target;if(target instanceof HTMLElement&&(target.isContentEditable||['INPUT','TEXTAREA','SELECT'].includes(target.tagName)))return;if(home.style.display!=='none'){event.preventDefault();openViewer()}});
 </script>
 </body>
 </html>
