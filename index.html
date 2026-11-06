@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111318">
+  <title>Good School Studies</title>
+  <style>
+    * { box-sizing:border-box }
+    html,body { margin:0; min-height:100%; width:100%; background:#111318; color:#f7f7fa; font-family:system-ui,-apple-system,"Segoe UI",sans-serif }
+    .launch { position:fixed; top:14px; left:14px; display:grid; place-items:center; width:46px; height:46px; border:1px solid #ffffff1c; border-radius:13px; background:#1b1d24; cursor:pointer; transition:background .15s,transform .15s }
+    .launch:hover { background:#292b34; transform:translateY(-1px) }
+    .r-icon { width:25px; height:25px; border-radius:5px; background:#f5f5f7; transform:rotate(12deg); display:grid; place-items:center }
+    .r-icon::after { content:""; width:9px; height:9px; background:#17181e }
+    .shade { display:none; position:fixed; inset:0; background:#090a0dcc; align-items:center; justify-content:center; padding:24px }
+    .dialog { position:relative; width:min(400px,100%); padding:36px 26px 28px; border:1px solid #ffffff20; border-radius:18px; background:#1b1d24; text-align:center; box-shadow:0 20px 70px #0008 }
+    .dialog .r-icon { display:inline-grid; width:38px; height:38px }
+    h1 { font-size:22px; margin:17px 0 8px }
+    p { color:#b2b3bd; line-height:1.55; font-size:14px; margin:0 auto 19px }
+    .web-link { color:#f7f7fa; font-size:13px }
+    .close { position:absolute; top:10px; right:10px; display:grid; place-items:center; width:38px; height:38px; border:0; border-radius:11px; background:#ffffff10; color:white; font-size:25px; cursor:pointer }
+    .close:hover { background:#ffffff22 }
+  </style>
+</head>
+<body>
+  <button class="launch" id="launch" type="button" aria-label="Open Roblox" title="Open Roblox"><span class="r-icon" aria-hidden="true"></span></button>
+  <div class="shade" id="shade" role="dialog" aria-modal="true" aria-labelledby="heading">
+    <section class="dialog">
+      <button class="close" id="close" type="button" aria-label="Close">×</button>
+      <span class="r-icon" aria-hidden="true"></span>
+      <h1 id="heading">Opening Roblox</h1>
+      <p>Allow your browser to open the Roblox app. The game runs in Roblox, outside this webpage.</p>
+      <a class="web-link" href="https://www.roblox.com/games/1818/Crossroads" target="_blank" rel="noopener">Open Roblox on the web instead</a>
+    </section>
+  </div>
+  <script>
+    // App deep link to Roblox Crossroads. Replace 1818 to select another experience.
+    const GAME_LINK = 'roblox://experiences/start?placeId=1818';
+    const shade = document.getElementById('shade');
+    document.getElementById('launch').addEventListener('click', () => {
+      shade.style.display = 'flex';
+      window.location.href = GAME_LINK;
+    });
+    function closeDialog() { shade.style.display = 'none'; }
+    document.getElementById('close').addEventListener('click', closeDialog);
+    shade.addEventListener('click', event => { if (event.target === shade) closeDialog(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') closeDialog(); });
+  </script>
+</body>
+</html>
