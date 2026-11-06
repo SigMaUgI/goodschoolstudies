@@ -1,83 +1,19 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#111318">
-  <title>Good School Studies</title>
-  <style>
-    * { box-sizing:border-box }
-    html,body { margin:0; min-height:100%; width:100%; background:#111318; color:#f4f5f8; font-family:system-ui,-apple-system,"Segoe UI",sans-serif }
-    .home { min-height:100vh; padding:44px clamp(20px,6vw,72px) }
-    .brand { color:#f4f5f8; font-size:17px; font-weight:700 }
-    .home h1 { margin:58px 0 10px; font-size:clamp(26px,4vw,38px); letter-spacing:-.04em }
-    .home p { margin:0 0 30px; color:#a7a9b3; font-size:14px }
-    .apps { display:flex; gap:22px; flex-wrap:wrap }
-    .app { width:144px; padding:14px 10px 16px; border:1px solid #ffffff17; border-radius:20px; background:#1b1d24; color:#f4f5f8; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:12px; font:inherit; transition:transform .16s,background .16s }
-    .app:hover { transform:translateY(-3px); background:#252832 }
-    .g-icon { width:108px; height:108px; display:grid; place-items:center; border-radius:19px; background:#f7f8fa; font:700 80px/1 Arial,sans-serif; position:relative }
-    .g-icon::before { content:"G"; background:conic-gradient(from -45deg,#4285f4 0 25%,#34a853 25% 47%,#fbbc05 47% 70%,#ea4335 70% 84%,#4285f4 84%); color:transparent; background-clip:text; -webkit-background-clip:text }
-    .app-name { font-size:14px; font-weight:650 }
-    .viewer { display:none; position:fixed; inset:0; background:#111318; flex-direction:column }
-    .toolbar { min-height:68px; display:flex; align-items:center; gap:10px; padding:10px 70px 10px 14px; border-bottom:1px solid #ffffff18; background:#191b21 }
-    .url-form { display:flex; flex:1; min-width:0; gap:8px }
-    .url { flex:1; min-width:0; height:42px; padding:0 14px; border:1px solid #ffffff20; border-radius:10px; background:#101116; color:#f4f5f8; font:14px system-ui,sans-serif; outline:none }
-    .url:focus { border-color:#8a8dff }
-    .go { height:42px; padding:0 18px; border:0; border-radius:10px; background:#f4f5f8; color:#17181e; font-weight:700; cursor:pointer }
-    .exit { position:absolute; z-index:3; top:13px; right:14px; width:42px; height:42px; border:1px solid #ffffff20; border-radius:11px; background:#292b33; color:white; font-size:27px; cursor:pointer; line-height:1 }
-    .exit:hover { background:#3a3d47 }
-    .frame-wrap { position:relative; flex:1; min-height:0 }
-    .frame { width:100%; height:100%; border:0; background:white }
-    .frame-note { position:absolute; bottom:10px; left:50%; transform:translateX(-50%); max-width:calc(100% - 24px); padding:8px 12px; border:1px solid #ffffff20; border-radius:9px; background:#111318ef; color:#c1c2c9; font-size:12px; text-align:center }
-    .frame-note a { color:white; white-space:nowrap }
-    @media(max-width:500px) { .home { padding-top:30px } .home h1 { margin-top:40px } .app { width:126px } .g-icon { width:96px;height:96px;font-size:70px } .toolbar { min-height:62px } }
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#111318">
+<title>Good School Studies</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;width:100%;background:#111318;color:#f4f5f8;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}.home{min-height:100vh;padding:28px}.apps{display:flex;gap:20px}.app{width:180px;padding:14px;border:1px solid #ffffff20;border-radius:20px;background:#1b1d24;color:#f4f5f8;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:12px;font:inherit;transition:transform .16s,background .16s}.app:hover{transform:translateY(-3px);background:#252832}.browser-icon{width:144px;height:144px;display:grid;place-items:center;border-radius:18px;background:#f4f5f8}.browser-icon svg{width:104px;height:104px}.app-name{font-size:15px;font-weight:650}.viewer{display:none;position:fixed;inset:0;background:#111318;flex-direction:column}.tabs{height:44px;display:flex;align-items:center;padding:0 10px;background:#15161b;border-bottom:1px solid #ffffff17}.tab{height:34px;min-width:150px;max-width:240px;display:flex;align-items:center;gap:9px;padding:0 12px;border-radius:9px 9px 0 0;background:#252730;color:#eee;font-size:13px}.tab-dot{width:11px;height:11px;border-radius:50%;background:#8292a8}.toolbar{min-height:62px;display:flex;align-items:center;padding:9px 68px 9px 12px;background:#1b1d24;border-bottom:1px solid #ffffff17}.url-form{display:flex;flex:1;min-width:0;gap:8px}.url{flex:1;min-width:0;height:42px;padding:0 14px;border:1px solid #ffffff20;border-radius:10px;background:#101116;color:#f4f5f8;font:14px system-ui,sans-serif;outline:none}.url:focus{border-color:#8a8dff}.go{height:42px;padding:0 18px;border:0;border-radius:10px;background:#f4f5f8;color:#17181e;font-weight:700;cursor:pointer}.exit{position:absolute;z-index:3;top:9px;right:12px;width:38px;height:36px;border:0;border-radius:9px;background:#30323a;color:white;font-size:25px;cursor:pointer;line-height:1}.exit:hover{background:#494c57}.frame-wrap{position:relative;flex:1;min-height:0}.frame{width:100%;height:100%;border:0;background:white}.frame-note{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);max-width:calc(100% - 24px);padding:8px 12px;border:1px solid #ffffff20;border-radius:9px;background:#111318ef;color:#c1c2c9;font-size:12px;text-align:center}.frame-note a{color:white;white-space:nowrap}
+</style>
 </head>
 <body>
-  <main class="home" id="home">
-    <div class="brand">Good School Studies</div>
-    <h1>Your apps</h1>
-    <p>Choose an app to open in this page.</p>
-    <div class="apps"><button class="app" id="openGoogle" type="button" aria-label="Open Google in this page"><span class="g-icon" aria-hidden="true"></span><span class="app-name">Google</span></button></div>
-  </main>
-  <section class="viewer" id="viewer" aria-label="In-page web viewer">
-    <div class="toolbar"><form class="url-form" id="urlForm"><input class="url" id="url" type="text" inputmode="url" autocomplete="url" spellcheck="false" aria-label="Website address" placeholder="https://www.google.com"><button class="go" type="submit">Go</button></form></div>
-    <button class="exit" id="exit" type="button" aria-label="Close viewer and return to menu" title="Back to menu">×</button>
-    <div class="frame-wrap"><iframe class="frame" id="frame" title="Website viewer" sandbox="allow-forms allow-scripts allow-popups allow-popups-to-escape-sandbox" referrerpolicy="no-referrer"></iframe><div class="frame-note">Some sites block in-page display, and network blocks still apply. <a id="external" href="https://www.google.com/" target="_blank" rel="noopener">Open this page separately</a></div></div>
-  </section>
-  <script>
-    const home = document.getElementById('home');
-    const viewer = document.getElementById('viewer');
-    const field = document.getElementById('url');
-    const frame = document.getElementById('frame');
-    const external = document.getElementById('external');
-    function navigate(value) {
-      let address = value.trim();
-      if (!address) return;
-      if (!address.includes('://')) address = 'https://' + address;
-      try {
-        const parsed = new URL(address);
-        if (!['http:', 'https:'].includes(parsed.protocol)) throw new Error('Only web addresses are supported.');
-        frame.src = parsed.href;
-        field.value = parsed.href;
-        external.href = parsed.href;
-      } catch (_) {
-        field.setCustomValidity('Enter a valid http or https website address.');
-        field.reportValidity();
-        field.setCustomValidity('');
-      }
-    }
-    document.getElementById('openGoogle').addEventListener('click', () => {
-      home.style.display = 'none';
-      viewer.style.display = 'flex';
-      navigate('https://www.google.com/');
-    });
-    document.getElementById('urlForm').addEventListener('submit', event => { event.preventDefault(); navigate(field.value); });
-    document.getElementById('exit').addEventListener('click', () => {
-      viewer.style.display = 'none';
-      home.style.display = 'block';
-      frame.src = 'about:blank';
-    });
-  </script>
+<main class="home" id="home"><div class="apps"><button class="app" id="openBrowser" type="button" aria-label="Open web viewer"><span class="browser-icon" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none" stroke="#26354a" stroke-width="5"><circle cx="50" cy="50" r="39"/><path d="M11 50h78M50 11c13 12 19 25 19 39S63 77 50 89C37 77 31 64 31 50s6-27 19-39z"/><path d="M20 27h60M20 73h60"/></svg></span><span class="app-name">Browser</span></button></div></main>
+<section class="viewer" id="viewer" aria-label="Web viewer"><div class="tabs"><div class="tab"><span class="tab-dot"></span><span>Web</span></div></div><div class="toolbar"><form class="url-form" id="urlForm"><input class="url" id="url" type="text" inputmode="url" autocomplete="url" spellcheck="false" aria-label="Website address" placeholder="Enter a website address"><button class="go" type="submit">Go</button></form></div><button class="exit" id="exit" type="button" aria-label="Close viewer and return to menu" title="Back to menu">×</button><div class="frame-wrap"><iframe class="frame" id="frame" title="Website viewer" sandbox="allow-forms allow-scripts allow-popups allow-popups-to-escape-sandbox" referrerpolicy="no-referrer"></iframe><div class="frame-note">Some sites refuse in-page display, and network restrictions still apply. <a id="external" href="https://example.com/" target="_blank" rel="noopener">Open separately</a></div></div></section>
+<script>
+const home=document.getElementById('home'),viewer=document.getElementById('viewer'),field=document.getElementById('url'),frame=document.getElementById('frame'),external=document.getElementById('external');
+function navigate(value){let address=value.trim();if(!address)return;if(!address.includes('://'))address='https://'+address;try{const parsed=new URL(address);if(!['http:','https:'].includes(parsed.protocol))throw new Error();frame.src=parsed.href;field.value=parsed.href;external.href=parsed.href;}catch(_){field.setCustomValidity('Enter a valid http or https website address.');field.reportValidity();field.setCustomValidity('');}}
+document.getElementById('openBrowser').addEventListener('click',()=>{home.style.display='none';viewer.style.display='flex';field.focus();});document.getElementById('urlForm').addEventListener('submit',event=>{event.preventDefault();navigate(field.value);});document.getElementById('exit').addEventListener('click',()=>{viewer.style.display='none';home.style.display='block';frame.src='about:blank';});
+</script>
 </body>
 </html>
